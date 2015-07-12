@@ -39,7 +39,7 @@
                     '<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>'+
                     '</li>'
                 );
-                $files.on('click', '.upload-kit-item .remove', methods.removeItem);
+                $files.on('click', '.upload-kit-item .btn-remove', methods.removeItem);
                 methods.checkInputVisibility();
                 methods.fileuploadInit();
                 methods.dragInit()
@@ -149,8 +149,14 @@
                     .append($('<input/>', {"name": name + '[type]', "value": file.type, "type":"hidden"}))
                     .append($('<input/>', {"name": name + '[order]', "value": file.order, "type":"hidden", "data-role": "order"}))
                     .append($('<input/>', {"name": name + '[base_url]', "value": file.base_url, "type":"hidden"}))
-                    .append($('<span/>', {"class": "name", "title": file.name}))
-                    .append($('<span/>', {"class": "glyphicon glyphicon-remove-circle remove", "data-url": file.delete_url}));
+                    .append($('<span/>', {"class": "name", "title": file.name}));
+
+                var btns = $('<span/>', {"class": "remove"}) 
+                    .append($('<a/>', {"class": "glyphicon glyphicon-remove-circle btn-remove", "data-url": file.delete_url})) 
+                    .append($('<a/>', {"class": "glyphicon glyphicon-scissors btn-crop", "data-src": file.base_url + '/' +file.path, "data-ratio": 1}));
+
+                item.append(btns);                   
+
                 if (!file.type || file.type.search(/image\/.*/g) !== -1) {
                     item.removeClass('not-image').addClass('image');
                     item.prepend($('<img/>', {src: file.base_url + '/' +file.path}));

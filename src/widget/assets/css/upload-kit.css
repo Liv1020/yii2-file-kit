@@ -96,14 +96,23 @@
   text-align: center;
   top: 50%;
   left: 50%;
-  width: 50px;
+  width: 100px;
   height: 50px;
-  margin-left: -25px;
+  margin-left: -50px;
   background-color: rgba(0, 0, 0, 0.8);
   padding: 4px;
   border-radius: 5px;
   color: #FFF;
   margin-top: -0.5em;
+  line-height: 40px;
+}
+.upload-kit .upload-kit-item .remove .btn-remove,
+.upload-kit .upload-kit-item .remove .btn-crop {
+  width: 40px;
+  height: 40px;
+  font-size: .8em;
+  color: #FFF;
+  text-decoration: none;
 }
 .upload-kit .upload-kit-item.image > img {
   height: 100%;
