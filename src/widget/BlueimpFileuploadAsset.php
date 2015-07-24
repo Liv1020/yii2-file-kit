@@ -22,6 +22,7 @@ class BlueimpFileuploadAsset extends AssetBundle
 
     public $depends = [
         'yii\web\JqueryAsset',
-        'trntv\filekit\widget\BlueimpLoadImageAsset'
+        'trntv\filekit\widget\BlueimpLoadImageAsset',
+        'trntv\filekit\widget\BlueimpCanvasToBlobAsset',
     ];
 }

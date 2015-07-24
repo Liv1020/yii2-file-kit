@@ -55,6 +55,16 @@ class Upload extends InputWidget
     public $fileStorage = 'fileStorage';
 
     /**
+     * @var bool|array
+     *
+     */
+    public $crop = false;
+
+    public $disableImageResize = false;
+    public $imageMaxWidth;
+    public $imageMaxHeight;
+
+    /**
      * @throws \yii\base\InvalidConfigException
      */
     public function init()
@@ -89,7 +99,10 @@ class Upload extends InputWidget
                 'maxNumberOfFiles' => $this->maxNumberOfFiles,
                 'maxFileSize' => $this->maxFileSize,
                 'acceptFileTypes' => $this->acceptFileTypes,
-                'files' => $this->files
+                'files' => $this->files,
+                'disableImageResize' => $this->disableImageResize,
+                'imageMaxWidth' => $this->imageMaxWidth,
+                'imageMaxHeight' => $this->imageMaxHeight,
             ]
         );
     }
@@ -119,6 +132,11 @@ class Upload extends InputWidget
             'multiple' => $this->multiple
         ]);
         $content .= Html::endTag('div');
+
+        if($this->crop){
+            $content .= Crop::widget($this->crop);
+        }
+
         return $content;
     }
 

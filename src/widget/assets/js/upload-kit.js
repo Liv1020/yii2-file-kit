@@ -60,6 +60,9 @@
                         : null,
                     process: true,
                     getNumberOfFiles: methods.getNumberOfFiles,
+                    disableImageResize: options.disableImageResize,
+                    imageMaxWidth: options.imageMaxWidth,
+                    imageMaxHeight: options.imageMaxHeight,
                     start: function (e, data) {
                         $container.find('.upload-kit-input')
                             .removeClass('error')
@@ -153,7 +156,7 @@
 
                 var btns = $('<span/>', {"class": "remove"}) 
                     .append($('<a/>', {"class": "glyphicon glyphicon-remove-circle btn-remove", "data-url": file.delete_url})) 
-                    .append($('<a/>', {"class": "glyphicon glyphicon-scissors btn-crop", "data-src": file.base_url + '/' +file.path, "data-ratio": 1}));
+                    .append($('<a/>', {"class": "glyphicon glyphicon-scissors btn-crop", "data-src": file.base_url + '/' +file.path}));
 
                 item.append(btns);                   
 
