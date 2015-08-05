@@ -14,7 +14,7 @@ $this->registerCss($css);
         <div class="modal-content">
             <div class="modal-header">
                 <a class="close" data-dismiss="modal">&times;</a>
-                <h4><?=Yii::t('backend','The cutting')?></h4>
+                <h4><?=Yii::t('backend','Corp image')?></h4>
             </div>
 
             <div class="modal-body">
@@ -28,7 +28,7 @@ $this->registerCss($css);
                 <input type="hidden" id="crop_w" name="crop_w"/>
                 <input type="hidden" id="crop_h" name="crop_h"/>
                 <p>
-                    <?= Html::button('Determining the cut',[
+                    <?= Html::button(Yii::t('backend', 'confirm'),[
                         'id'=>'btn-crop',
                         'class'=>'btn btn-primary'
                     ])?>
