@@ -156,13 +156,13 @@
 
                 var btns = $('<span/>', {"class": "remove"}) 
                     .append($('<a/>', {"class": "glyphicon glyphicon-remove-circle btn-remove", "data-url": file.delete_url})) 
-                    .append($('<a/>', {"class": "glyphicon glyphicon-scissors btn-crop", "data-src": file.base_url + '/' +file.path}));
+                    .append($('<a/>', {"class": "glyphicon glyphicon-scissors btn-crop", "data-src": file.base_url + file.path}));
 
                 item.append(btns);                   
 
                 if (!file.type || file.type.search(/image\/.*/g) !== -1) {
                     item.removeClass('not-image').addClass('image');
-                    item.prepend($('<img/>', {src: file.base_url + '/' +file.path}));
+                    item.prepend($('<img/>', {src: file.base_url + file.path}));
                     item.find('span.type').text('');
                 } else {
                     item.removeClass('image').addClass('not-image');
